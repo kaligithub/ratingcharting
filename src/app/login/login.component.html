@@ -1,0 +1,54 @@
+<div class="container-fluid" style="background-color:#ededed!important">
+<div id="login-page">
+  <div id="login-container" class="container" >
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4 col-md-4 col-md-offset-4 text-center" id="app-logo-div">
+        <img id="app-logo-login" src="src/img/incedo-logo.png" />
+      </div>
+    </div>
+
+
+    <div id="login-form-div">
+     <form (ngSubmit)="onSignin(f)" #f="ngForm">
+        <h4 class="margin-top-0">Login</h4>
+        <div class="form-group margin-top-20">
+		     <div class="alert alert-danger" id="alertBoxlogin" style="display:none;">
+  	      	<div class="alert-link" id="alertMsglogin"></div>
+  	     </div>
+         <label for="username">User Name</label>
+          <div class="input-group">
+            <input id="username" type="text"  name="username" class ="form-control no-border" autocomplete="off" ngModel required>
+            <span class="input-group-addon no-border bg-white">
+              <img id="" src="src/img/user-icon.png" />
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input id="password" type="password" name="password" class="form-control no-border" ngModel  required>
+            <span class="input-group-addon no-border bg-white">
+              <img id="" src="src/img/password-icon.png" />
+            </span>
+
+          </div>
+		<!--<p class="passClass">Use "Demo" as password </p>-->
+        </div>
+        <div class="row">
+          <div class="checkbox col-xs-6 col-md-6">
+
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <button id="btn-submit" type="submit" class="btn btn-default pull-right" [disabled]="!f.valid">Login</button>
+            <a routerLink="/signup" routerLinkActive="active">Register</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+    <app-footer></app-footer>
+</div>
+</div>
