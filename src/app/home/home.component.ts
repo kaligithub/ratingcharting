@@ -14,13 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   userslist(){
-     alert('sadsad');     
+     alert('sadsad');
 
   }
-
-  logout() {
-    localStorage.removeItem("sessUsername");
-    this.router.navigate(['login']);
-  }
-
 }

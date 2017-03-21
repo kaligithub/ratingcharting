@@ -1,3 +1,22 @@
-<p>
-  users works!
-</p>
+<div class="container">
+  <h2>Users List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.fields.first_name}}</td>
+        <td>{{user.fields.last_name}}</td>
+        <td>{{user.fields.email}}</td>
+        <td>{{user.fields.username}}</td>
+        <td><a routerLink="/friends/{{user.pk}}">Edit</a> | Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

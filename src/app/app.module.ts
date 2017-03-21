@@ -14,6 +14,7 @@ import { AuthGuard } from './services/auth.gaurd';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 
 
@@ -25,7 +26,8 @@ import { UsersComponent } from './users/users.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailComponent
 
   ],
   imports: [

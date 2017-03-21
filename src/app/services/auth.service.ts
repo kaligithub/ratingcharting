@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 import { Observable } from 'rxjs'
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class AuthService {
@@ -19,4 +21,9 @@ export class AuthService {
         {headers: new Headers({'X-Requested-With':'XMLHttpRequest'})}
       );
    }
+   getAllUsers(){
+     return this.http.get('http://localhost:8000/data_persistence/get_allusers/')
+         .map(res => res.json());
+   }
+
 }

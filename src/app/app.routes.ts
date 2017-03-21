@@ -17,7 +17,6 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent,
     children: [
       { path: 'users', component: UsersComponent },
-
     ]
   },
   { path: '**', redirectTo: '' }
