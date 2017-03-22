@@ -6,6 +6,8 @@ import {SignupComponent} from './signup/signup.component';
 import {HomeComponent} from './home/home.component';
 import { AuthGuard } from './services/auth.gaurd';
 import {UsersComponent} from './users/users.component';
+import {UserDetailComponent} from './users/user-detail/user-detail.component';
+
 
 
 
@@ -17,6 +19,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent,
     children: [
       { path: 'users', component: UsersComponent },
+      { path: 'users/:id', component: UserDetailComponent }
     ]
   },
   { path: '**', redirectTo: '' }
