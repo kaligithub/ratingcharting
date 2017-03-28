@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent,
     children: [
       { path: 'users', component: UsersComponent },
-      { path: 'users/:id', component: UserDetailComponent }
+      { path: 'user/:id', component: UserDetailComponent }
     ]
   },
   { path: '**', redirectTo: '' }
