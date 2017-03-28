@@ -25,5 +25,12 @@ export class AuthService {
      return this.http.get('http://localhost:8000/data_persistence/get_allusers/')
          .map(res => res.json());
    }
+   getUserById(id: number){
+     return this.http.post('http://localhost:8000/data_persistence/get_user_byid/',
+        {id:id},
+        {headers: new Headers({'X-Requested-With':'XMLHttpRequest'})}
+      );
+   }
+
 
 }
