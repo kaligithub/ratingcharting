@@ -1,25 +1,26 @@
 <div id="edit-form-div">
- <form (ngSubmit)="onSignup(f)" #f="ngForm">
+ <form (ngSubmit)="onUpdate(f)" #f="ngForm" *ngIf="user.fields">
     <h4 class="margin-top-0">Update</h4>
+    <div *ngIf="message">Record has been updated</div>
     <div class="form-group margin-top-20">
      <div class="alert alert-danger" id="alertBoxlogin" style="display:none;">
         <div class="alert-link" id="alertMsglogin"></div>
      </div>
      <label for="firstname">First Name</label>
       <div class="input-group">
-        <input id="firstname"  type="text" name="firstname" class="form-control no-border" autocomplete="off" required>
+        <input id="firstname" [(ngModel)]="user.fields.first_name" type="text" name="firstname" class="form-control no-border" autocomplete="off" required>
       </div>
     </div>
     <div class="form-group">
       <label for="Last Name">Last Name</label>
       <div class="input-group">
-        <input id="lastname"  type="text" name="lastname" class="form-control no-border" ngModel required>
+        <input id="lastname" [(ngModel)]="user.fields.last_name" type="text" name="lastname" class="form-control no-border" required>
       </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
       <div class="input-group">
-        <input id="email"  type="text" name="email" class="form-control no-border" ngModel required>
+        <input id="email" [(ngModel)]="user.fields.email" type="text" name="email" class="form-control no-border" required>
       </div>
     </div>
     <div class="row">

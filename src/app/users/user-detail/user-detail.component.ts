@@ -1,20 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import { AuthService } from "../../services/auth.service"
-//import { User }    from '../../user';
-export class User{
-
-  public id: number;
-  public first_name: string;
-  public last_name: string;
-  public email: string;
-  public username: string;
-  public password: string;
-
-  constructor() {  }
-
-}
+import { NgForm } from "@angular/forms";
+import { User }    from '../../user';
 
 @Component({
   selector: 'app-user-detail',
@@ -23,39 +12,43 @@ export class User{
 })
 export class UserDetailComponent implements OnInit {
   id: number;
-  user: User;
-  message: string;
+  user: any;
+  private message = '';
 
-  constructor(private route: ActivatedRoute,private authService: AuthService) {
-  var data = new User();
-    data.id  = 1;
-    data.first_name ="Anki";
-    this.user = data;
-
-   }
+  constructor(private route: ActivatedRoute, private authService: AuthService) {
+      this.user = {};
+  }
 
   ngOnInit() {
-    var ref = this;
 
     this.route.params.subscribe(params => {
-      //  ref.id = params['id'];
-      // ref.getCurrentUser(ref.id,ref);
-        console.log(params);
+        this.id = params['id'];
+        this.getCurrentUser(this.id);
     });
   }
-   getCurrentUser (id: number,reference) : any {
-     var ref = reference;
+   getCurrentUser (id: number) : any {
       this.authService.getUserById(id)
+      .map((data: any) => data.json())
       .subscribe(
-          response => {
-            var data = new User();
-            data.id  = 1;
-            data.first_name ="Anki";
-          //  return (response);
-            ref.user = data;
-          },
-          error => console.log(error)
+            (data: any) => {
+                this.user = data[0];
+            },
+            err => console.log(err), // error
+            () => console.log(this.user) // complete
       );
   }
+
+  onUpdate(form: NgForm){
+    this.authService.userupdate(form.value.firstname,form.value.lastname,form.value.email)
+    .subscribe(
+        response => {
+          if(response.status==200){
+            this.message = '1';
+          }
+        },
+        error => console.log(error)
+    );
+  }
+
 
 }

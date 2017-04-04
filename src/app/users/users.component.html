@@ -15,7 +15,10 @@
         <td>{{user.fields.last_name}}</td>
         <td>{{user.fields.email}}</td>
         <td>{{user.fields.username}}</td>
-        <td><a routerLink="/user/{{user.pk}}">Edit</a> | Delete</td>
+        <td>
+          <a routerLink="/user/{{user.pk}}">Edit</a> |
+          <a routerLink="/user/delete/{{user.pk}}">Delete</a>
+        </td>
       </tr>
     </tbody>
   </table>

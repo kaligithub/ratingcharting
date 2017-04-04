@@ -27,7 +27,8 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
     HeaderComponent,
     FooterComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    
 
   ],
   imports: [

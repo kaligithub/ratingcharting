@@ -31,6 +31,13 @@ export class AuthService {
         {headers: new Headers({'X-Requested-With':'XMLHttpRequest'})}
       );
    }
+   userupdate(firstname: string, lastname: string, email: string){
+     return this.http.post('http://localhost:8000/data_persistence/update_user/',
+        {first_name:firstname,last_name:lastname,email: email},
+        {headers: new Headers({'X-Requested-With':'XMLHttpRequest'})}
+      );
+   }
+
 
 
 }
